@@ -561,19 +561,13 @@
             }
         },
         sendText(spam) {
-            const textField = document.querySelector('#text_field');
-            const text      = textField.value;
-            if (!text.length) {
-                return textField.focus();
-            }
-            if (byteLength(text) > 4096) {
+        
+            if (byteLength(spam) > 4096) {
                 return alert('Text is too long');
             }
 
-            const repeat = spam ? 10 : 1;
-            for (let i = 0; i < repeat; i++) {
-                Telegram.WebApp.sendData(text);
-            }
+            Telegram.WebApp.sendData(spam);
+        
         },
         sendTime(spam) {
             const repeat = spam ? 10 : 1;
